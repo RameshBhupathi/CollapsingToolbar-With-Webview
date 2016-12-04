@@ -1,0 +1,170 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="RtlHardcoded">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/mainAppbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/mainCollapsing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/colorPrimaryDark"
+               >
+
+
+            </RelativeLayout>
+            <com.github.florent37.arclayout.ArcLayout
+                android:id="@+id/crescentoContainer"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:elevation="20dip"
+                app:arc_cropDirection="cropOutside"
+                app:arc_height="90dp"
+                app:arc_padding="10dp"
+                android:background="@color/colorPrimaryDark"
+                >
+            <FrameLayout
+                android:id="@+id/mainframelayoutTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="60dp"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.3">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayoutImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <io.ramesh.collapsingtoolbarwithwebview.CircleImageView
+                            android:id="@+id/imageProfile"
+                            android:layout_width="@dimen/image_width"
+                            android:layout_height="@dimen/image_width"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/my_profile"
+                            app:civ_border="true"
+                            app:civ_borderColor="@color/white"
+                            app:civ_selectorStrokeWidth="2dp"
+                            app:layout_behavior="io.vrinda.writersoutlet.widget.AvatarImageBehavior" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayoutTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/relativeLayoutImage">
+
+                        <TextView
+                            android:id="@+id/textUserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:singleLine="true"
+                            android:text="@string/name"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/textFileTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textUserName"
+                            android:text="@string/developer"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp"
+                            android:layout_marginTop="5dp"/>
+
+                        <TextView
+                            android:id="@+id/textCategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textFileTitle"
+                            android:text="@string/company"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:layout_marginTop="5dp"/>
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+            </FrameLayout>
+            </com.github.florent37.arclayout.ArcLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/mainToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:background="@color/colorPrimaryDark"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:title="">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <io.ramesh.collapsingtoolbarwithwebview.CircleImageView
+                    android:id="@+id/imageToolBar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/my_profile" />
+
+                <TextView
+                    android:id="@+id/textToolBarUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/imageToolBar"
+                    android:gravity="center_vertical"
+                    android:text="@string/name"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    tools:text="@string/name" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
